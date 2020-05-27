@@ -1,0 +1,32 @@
+{
+  "name": "accountability-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p .",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarrodtomasek/accountability-backend.git"
+  },
+  "author": "Jarrod Tomasek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrodtomasek/accountability-backend/issues"
+  },
+  "homepage": "https://github.com/jarrodtomasek/accountability-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.5",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
+}
