@@ -18,7 +18,7 @@ const mySQLConnection = new DBConnection();
 mySQLConnection.connect();
 mySQLConnection.createUserTable();
 // mySQLConnection.createTaskTable();
-// mySQLConnection.createGroupTable();
+mySQLConnection.createGroupTable();
 
 app.listen((process.env.PORT || 5000), () => {
     console.log("Server Running");
