@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const mySQLConnection = new DBConnection();
 mySQLConnection.connect();
 // mySQLConnection.createUserTable();
-mySQLConnection.createTaskTable();
+// mySQLConnection.createTaskTable();
 mySQLConnection.createGroupTable();
 
 app.listen((process.env.PORT || 5000), () => {

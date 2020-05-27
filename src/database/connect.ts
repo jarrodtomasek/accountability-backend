@@ -46,7 +46,7 @@ export class DBConnection {
     }
 
     createGroupTable() {
-        var sql = `CREATE TABLE Group (group_id INT AUTO_INCREMENT PRIMARY KEY,group_name VARCHAR(150),number_of_members INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
+        var sql = `CREATE TABLE Group (group_id INT AUTO_INCREMENT PRIMARY KEY,group_name VARCHAR(75),number_of_members INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
         var sql2 = "DROP TABLE Group"
         this.myConnection.query(sql, (err, result) => {
             if (err) {
