@@ -25,6 +25,15 @@ export class DBConnection {
         })
     }
 
+    seeExistingTables() {
+        var sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES";
+
+        this.myConnection.query(sql, (err, result) => {
+            if (err) throw err;
+            console.log(result)
+        })
+    }
+
     createUserTable() {
         var sql = `CREATE TABLE User (user_id INT AUTO_INCREMENT PRIMARY KEY,email VARCHAR(75),first_name DATE,last_name DATE,password VARCHAR(255),completed_tasks INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
         var sql2 = "DROP TABLE User"

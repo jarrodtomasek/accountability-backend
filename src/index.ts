@@ -16,9 +16,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Create Connection to Database
 const mySQLConnection = new DBConnection();
 mySQLConnection.connect();
-mySQLConnection.createUserTable();
+mySQLConnection.seeExistingTables();
+// mySQLConnection.createUserTable();
 // mySQLConnection.createTaskTable();
-mySQLConnection.createGroupTable();
+// mySQLConnection.createGroupTable();
 
 app.listen((process.env.PORT || 5000), () => {
     console.log("Server Running");
