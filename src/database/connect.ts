@@ -26,17 +26,7 @@ export class DBConnection {
     }
 
     createUserTable() {
-        var sql = `
-        CREATE TABLE User (
-            user_id INT AUTO_INCREMENT PRIMARY KEY,
-            email VARCHAR(75),
-            first_name DATE,
-            last_name DATE,
-            password VARCHAR(255),
-            completed_tasks INT DEFAULT 0
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )  ENGINE=INNODB;
-        `
+        var sql = `CREATE TABLE User (user_id INT AUTO_INCREMENT PRIMARY KEY,Pemail VARCHAR(75),Pfirst_name DATE,Plast_name DATE,Ppassword VARCHAR(255),Pcompleted_tasks INT DEFAULT 0,Pcreated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
 
         this.myConnection.query(sql, (err, result) => {
             if (err) throw err;
@@ -45,18 +35,7 @@ export class DBConnection {
     }
 
     createTaskTable() {
-        var sql = `
-        CREATE TABLE Task (
-            user_id INT AUTO_INCREMENT PRIMARY KEY,
-            email VARCHAR(75),
-            start_date DATE,
-            due_date DATE,
-            status TINYINT NOT NULL,
-            priority TINYINT NOT NULL,
-            description TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )  ENGINE=INNODB;
-        `
+        var sql = `CREATE TABLE Task (user_id INT AUTO_INCREMENT PRIMARY KEY,email VARCHAR(75),start_date DATE,due_date DATE,status TINYINT NOT NULL,priority TINYINT NOT NULL,description TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
 
         this.myConnection.query(sql, (err, result) => {
             if (err) throw err;
@@ -65,14 +44,7 @@ export class DBConnection {
     }
 
     createGroupTable() {
-        var sql = `
-        CREATE TABLE Group (
-            group_id INT AUTO_INCREMENT PRIMARY KEY,
-            group_name VARCHAR(150),
-            number_of_members INT DEFAULT 0
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )  ENGINE=INNODB;
-        `
+        var sql = `CREATE TABLE Group (group_id INT AUTO_INCREMENT PRIMARY KEY,group_name VARCHAR(150),number_of_members INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
 
         this.myConnection.query(sql, (err, result) => {
             if (err) throw err;
