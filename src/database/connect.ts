@@ -1,5 +1,10 @@
 import mysql, {Connection, MysqlError} from 'mysql';
 
+/*
+
+    Class to manage the Database Connection
+
+*/
 export class DBConnection {
 
     myConnection: Connection;
@@ -24,66 +29,4 @@ export class DBConnection {
             console.log("Database Disconnected")
         })
     }
-
-    seeExistingTables() {
-        var sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES";
-
-        this.myConnection.query(sql, (err, result) => {
-            if (err) throw err;
-            console.log(result)
-        })
-    }
-
-    createUserTable() {
-        var sql = `CREATE TABLE User (user_id INT AUTO_INCREMENT PRIMARY KEY,email VARCHAR(75),first_name DATE,last_name DATE,password VARCHAR(255),completed_tasks INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
-        var sql2 = "DROP TABLE User"
-        this.myConnection.query(sql, (err, result) => {
-            if (err) throw err;
-            console.log("User Table Created")
-        })
-    }
-
-    createTaskTable() {
-        var sql = `CREATE TABLE Task (user_id INT AUTO_INCREMENT PRIMARY KEY,email VARCHAR(75),start_date DATE,due_date DATE,status TINYINT NOT NULL,priority TINYINT NOT NULL,description TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;`
-        var sql2 = 'DROP TABLE Task'
-        this.myConnection.query(sql2, (err, result) => {
-            if (err){
-                throw err;
-            } 
-            console.log("Task Table Deleted")
-        })
-    }
-
-    createGroupTable() {
-var sql = "CREATE TABLE Group (group_id INT AUTO_INCREMENT PRIMARY KEY,group_name VARCHAR(150),members INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;"
-        var sql2 = "DROP TABLE Group"
-        this.myConnection.query(sql, (err, result) => {
-            if (err) {
-                throw err;
-            }
-            console.log("Group Table Created")
-        })
-    }
 }
-
-`
-CREATE TABLE User (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,email VARCHAR(75),first_name DATE,last_name DATE,
-    password VARCHAR(255),
-    completed_tasks INT DEFAULT 0
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)  ENGINE=INNODB;
-
-CREATE TABLE Task (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(75),
-    start_date DATE,
-    due_date DATE,
-    status TINYINT NOT NULL,
-    priority TINYINT NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)  ENGINE=INNODB;
-
-CREATE TABLE Group (group_id INT AUTO_INCREMENT PRIMARY KEY,group_name VARCHAR(150),members INT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)  ENGINE=INNODB;
-`
