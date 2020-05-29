@@ -42,7 +42,7 @@ export default class RequestRequirements {
                 paramKey:"email",
                 required:true,
                 type:"string",
-                validatorFunction:"email"
+                // validatorFunction:"email"
             },
             {
                 paramKey:"password",
