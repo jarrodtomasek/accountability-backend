@@ -17,14 +17,15 @@ const validateParams = function (requestParams: any) {
                         result: `${param.paramKey} is of type ` +
                         `${typeof reqParam} but should be ${param.type}`
                     });
-                } else {
-                    if (!runValidators(reqParam, param)) {
-                        return res.send({
-                            status: 400,
-                            result: `Validation failed for ${param.paramKey}`
-                        });
-                    }
-                }
+                } 
+                // else {
+                //     if (!runValidators(reqParam, param)) {
+                //         return res.send({
+                //             status: 400,
+                //             result: `Validation failed for ${param.paramKey}`
+                //         });
+                //     }
+                // }
             
             // Is Required
             } else if (param.required){
