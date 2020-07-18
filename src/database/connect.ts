@@ -10,7 +10,8 @@ export class DBConnection {
     public myConnection: Connection;
 
     constructor() {
-        this.myConnection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+        console.log(process.env.TEST_URL)
+        this.myConnection = mysql.createConnection((process.env.CLEARDB_DATABASE_URL).toString());
     }
 
     connect() {
