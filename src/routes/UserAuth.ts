@@ -12,13 +12,14 @@ import RequestRequirements from './request-requirements'
 // import bcrypt from 'bcryptjs';  
 // import rp from "request-promise";
 
+
 const UserAuth: Router = express.Router();
 const Requirements = new RequestRequirements();
 
-UserAuth.post("/register", validateParams(Requirements.getRegisterParameters()), (req: Request, res: Response) => {
+UserAuth.post("/register", validateParams(Requirements.getRegisterParameters()), async (req: Request, res: Response) => {
     try {
         let token = UserManagement.generateAuthToken();
-        res.status(201).send({ "Message":"Hello World" });
+        res.status(201).send({ "Message":"User Created" });
     }
     catch(err) {
 

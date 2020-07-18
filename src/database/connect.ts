@@ -7,10 +7,10 @@ import mysql, {Connection, MysqlError} from 'mysql';
 */
 export class DBConnection {
 
-    myConnection: Connection;
+    public myConnection: Connection;
 
     constructor() {
-        this.myConnection = mysql.createConnection("mysql://bd4dfbdb1ee11c:82ab9c56@us-cdbr-east-05.cleardb.net/heroku_c0fb01ad990e85c?reconnect=true");
+        this.myConnection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
     }
 
     connect() {
