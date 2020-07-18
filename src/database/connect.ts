@@ -10,10 +10,8 @@ export class DBConnection {
     public myConnection: Connection;
 
     constructor() {
-        console.log(process.env.TEST_URL)
-        console.log(process.env.CLEARDB_DATABASE_URL)
-        console.log(typeof process.env.CLEARDB_DATABASE_URL);
-        this.myConnection = mysql.createConnection("mysql://bd4dfbdb1ee11c:82ab9c56@us-cdbr-east-05.cleardb.net/heroku_c0fb01ad990e85c?reconnect=true");
+        let uri = process.env.CLEARDB_DATABASE_URL;
+        this.myConnection = mysql.createConnection(uri);
     }
 
     connect() {
