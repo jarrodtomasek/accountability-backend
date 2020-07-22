@@ -10,7 +10,7 @@ export class DBConnection {
     public myConnection: Connection;
 
     constructor() {
-        let uri = process.env.CLEARDB_DATABASE_URL;
+        let uri = String(process.env.CLEARDB_DATABASE_URL);
         this.myConnection = mysql.createConnection(uri);
     }
 
