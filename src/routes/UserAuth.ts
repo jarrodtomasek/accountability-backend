@@ -6,9 +6,7 @@ import UserManagement from '../database/user-management';
 
 // Middlewares
 import validateParams from '../middleware/validate-params';
-
-// Other
-import RequestRequirements from './request-requirements'
+import RequestRequirements from '../middleware/request-requirements'
 // import bcrypt from 'bcryptjs';  
 // import rp from "request-promise";
 
@@ -18,7 +16,7 @@ const Requirements = new RequestRequirements();
 
 UserAuth.post("/register", validateParams(Requirements.getRegisterParameters()), async (req: Request, res: Response) => {
     try {
-        let token = UserManagement.generateAuthToken();
+        UserManagement.registerUser()
         res.status(201).send({ "Message":"User Created" });
     }
     catch(err) {
